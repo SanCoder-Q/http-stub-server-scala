@@ -53,7 +53,7 @@ class JsonUtilsTest extends FunSuite {
       }"""
 
   def primatives = JsonUtils.deserializeObject(primativesStr)
-    .asInstanceOf[scala.collection.mutable.Map[String, _]]
+    .asInstanceOf[Map[String, _]]
 
   test("deserialize integer value") {
     assert(primatives("integer") === 1234)
