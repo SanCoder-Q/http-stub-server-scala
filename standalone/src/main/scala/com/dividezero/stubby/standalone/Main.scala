@@ -117,6 +117,7 @@ object WaitParam extends Params.Extract(
   "wait", Params.first ~> Params.int ~> Params.pred { _ > 0 }
 )
 
+@io.netty.channel.ChannelHandler.Sharable
 class AppPlan(server: Server) extends cycle.Plan with cycle.ThreadPool with ServerErrorResponse {
   def intent = {
     case req @ Path(Seg("_control" :: "shutdown" :: Nil)) => req match {
