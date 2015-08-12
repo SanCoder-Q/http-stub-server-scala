@@ -19,7 +19,7 @@ object TestServer {
 
   def stop() = http.stop()
 
-  def port: Int = http.port
+  def port: Int = http.portBindings.head.port
 
   def isRunning: Boolean = http != null
 
