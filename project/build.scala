@@ -15,7 +15,7 @@ object BuildSettings {
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
     organization := "com.dividezero",
-    scalaVersion := "2.10.3",
+    scalaVersion := "2.11.7",
     scalacOptions ++= Seq("-feature"),
     fork := true // working around issue where JavaScript script engine was not found in tests (sbt 0.13.0)
   )
@@ -134,36 +134,35 @@ object RootBuild extends Build {
 object Dependencies {
 
   val unfiltered = Seq(
-    "net.databinder" %% "unfiltered" % "0.6.8",
-    "net.databinder" %% "unfiltered-filter" % "0.6.8",
-    "net.databinder" %% "unfiltered-netty" % "0.6.8",
-    "net.databinder" %% "unfiltered-netty-server" % "0.6.8"
+    "net.databinder" %% "unfiltered" % "0.8.4",
+    "net.databinder" %% "unfiltered-filter" % "0.8.4",
+    "net.databinder" %% "unfiltered-netty" % "0.8.4",
+    "net.databinder" %% "unfiltered-netty-server" % "0.8.4"
   )
 
   val jackson = Seq(
-    "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.2.2",
-    "com.fasterxml.jackson.core" % "jackson-core" % "2.2.2",
-    "com.fasterxml.jackson.core" % "jackson-databind" % "2.2.2"
+    "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.6.0-1",
+    "com.fasterxml.jackson.core" % "jackson-core" % "2.6.0",
+    "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.0"
   )
 
   lazy val runtime = Seq(
     "org.apache.commons" % "commons-lang3" % "3.1",
     "commons-io" % "commons-io" % "2.4",
     "org.apache.httpcomponents" % "httpclient" % "4.2.5",
-    "com.typesafe" %% "scalalogging-log4j" % "1.0.1",
+    "com.typesafe.scala-logging" %% "scala-logging" % "3.1.0",
     "org.apache.logging.log4j" % "log4j-core" % "2.0-beta3"
     //"org.mozilla" % "rhino" % "1.7R4"
   )
 
   lazy val test = Seq(
-    // "org.scalatest" %% "scalatest" % "2.0.M5b" % "test",
-    "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test",
-    "org.scalatest" %% "scalatest" % "2.0" % "test",
+    "org.scalamock" %% "scalamock-scalatest-support" % "3.2.2" % "test",
+    "org.scalatest" %% "scalatest" % "2.2.4" % "test",
     "junit" % "junit" % "4.11" % "test"
   )
   
   lazy val functionalTest = Seq(
-    "org.scalatest" %% "scalatest" % "2.0"
+    "org.scalatest" %% "scalatest" % "2.2.4"
   )
 
   lazy val all = unfiltered ++ jackson ++ runtime ++ test
