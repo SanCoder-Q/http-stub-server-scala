@@ -5,13 +5,13 @@ import com.dividezero.stubby.core.model._
 import scala.collection.mutable.ListBuffer
 import com.dividezero.stubby.core.js.ScriptWorld
 import com.dividezero.stubby.core.js.Script
-import com.typesafe.scalalogging.log4j.Logging
+import com.typesafe.scalalogging.LazyLogging
 import com.dividezero.stubby.core.util.JsonUtils
 import com.dividezero.stubby.core.util.TimeLimit
 
 case class NotFoundException(message: String) extends RuntimeException(message)
 
-class StubService extends Logging {
+class StubService extends LazyLogging {
 
   val LOGGER = logger // make logging stand out...
 

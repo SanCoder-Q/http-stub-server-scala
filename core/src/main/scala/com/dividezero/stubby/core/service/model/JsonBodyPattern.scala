@@ -5,9 +5,9 @@ import com.dividezero.stubby.core.util.HttpMessageUtils
 import com.dividezero.stubby.core.util.JsonUtils
 import com.dividezero.stubby.core.util.ListUtils._
 import com.fasterxml.jackson.core.JsonProcessingException
-import com.typesafe.scalalogging.log4j.Logging
+import com.typesafe.scalalogging._
 
-class JsonBodyPattern(val pattern: AnyRef) extends BodyPattern with Logging {
+class JsonBodyPattern(val pattern: AnyRef) extends BodyPattern with LazyLogging {
 
   val LOGGER = logger // make logging stand out...
 
