@@ -8,9 +8,7 @@ import com.dividezero.stubby.core.model.StubRequest
 import unfiltered.netty.ReceivedMessage
 import unfiltered.request.HttpRequest
 import org.apache.commons.io.IOUtils
-import com.dividezero.stubby.core.util.OptionUtils
-import io.netty.buffer.Unpooled
-import io.netty.handler.codec.http._
+import org.jboss.netty.buffer.ChannelBuffers
 import org.apache.http.NameValuePair
 
 object Transformer {
@@ -43,16 +41,9 @@ object Transformer {
       None // no body
     }
   }
-  
-  private def hasBody(req: HttpRequest[ReceivedMessage]): Boolean = { 
-		val u = req.underlying.request
-		if (u.isInstanceOf[DefaultFullHttpRequest]) {
-    	val dfhr = u.asInstanceOf[DefaultFullHttpRequest]
-			dfhr.content != Unpooled.EMPTY_BUFFER
-		} else {
-			false
-		}	
-	}
+
+  private def hasBody(req: HttpRequest[ReceivedMessage]): Boolean =
+      req.underlying.request.getContent != ChannelBuffers.EMPTY_BUFFER
 
   private def toStubHeaders(src: HttpRequest[_]): Iterator[StubParam] = {
     for (

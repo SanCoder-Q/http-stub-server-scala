@@ -134,10 +134,10 @@ object RootBuild extends Build {
 object Dependencies {
 
   val unfiltered = Seq(
-    "net.databinder" %% "unfiltered" % "0.8.4",
-    "net.databinder" %% "unfiltered-filter" % "0.8.4",
-    "net.databinder" %% "unfiltered-netty" % "0.8.4",
-    "net.databinder" %% "unfiltered-netty-server" % "0.8.4"
+    "net.databinder" %% "unfiltered" % "0.7.1",
+    "net.databinder" %% "unfiltered-filter" % "0.7.1",
+    "net.databinder" %% "unfiltered-netty" % "0.7.1",
+    "net.databinder" %% "unfiltered-netty-server" % "0.7.1"
   )
 
   val jackson = Seq(
